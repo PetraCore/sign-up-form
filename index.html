@@ -9,6 +9,60 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <h1>Hi mom!</h1>
+    <div class="flex-horizontal-container">
+        <div class="side-banner">
+            <div class="banner">
+                <img src="img/odin-lined.png" alt="The Odin Project Logo" class="logo">
+                <span class="logo">ODIN</span>
+            </div>
+            <div>
+                Photo by
+                <a href="https://unsplash.com/photos/25xggax4bSA">Halie West</a>
+                on
+                <a href="https://unsplash.com/">Unsplash</a>
+            </div>
+        </div>
+
+        <div class="flex-vertical-container">
+            <div class="header">
+                <p>
+                    This is not a real online service! You know you need
+                    something like this in your life to help you realize your
+                    deepest dreams. Sign up now to get started.
+                </p>
+                <p>
+                    You know you want to.
+                </p>
+            </div>
+
+            <form action="get">
+                <div class="highlight">
+                    <h1>Let's do this!</h1>
+
+                    <label for="first-name">First Name</label>
+                    <input type="text" name="first-name" id="first-name">
+
+                    <label for="last-name">Last Name</label>
+                    <input type="text" name="last-name" id="last-name">
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+
+                    <label for="phone-number">Phone Number</label>
+                    <input type="tel" name="phone-number" id="phone-number">
+
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+
+                <button type="submit">Create Account</button>
+            </form>
+
+            <p>Already have an account? <a href="#">Log in</a></p>
+        </div>
+    </div>
 </body>
 </html>
