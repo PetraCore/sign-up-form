@@ -6,6 +6,7 @@
 
 :root {
     --standard-bottom-margin: 48px;
+
     font-family: sans-serif;
     background-color: #fff;
     color: #1a1a1a;
@@ -104,6 +105,11 @@ input {
         border: 1px solid #e5e7eb;
         border-radius: 4px;
     }
+    
+    &:focus {
+        outline: 1px solid #5c5ce7;
+        box-shadow: 0 4px 10px 0px #00000038;
+    }
 }
 
 .highlight {
@@ -143,6 +149,12 @@ button {
 
     font-weight: bold;
     font-size: 1.2rem;
+
+    &:focus,
+    &:hover {
+        background-color: #8ba376;
+        outline: none;
+    }
 }
 
 .log-in-prompt {
