@@ -5,6 +5,7 @@
 }
 
 :root {
+    --standard-bottom-margin: 32px;
     font-family: sans-serif;
     background-color: #fff;
     color: #1a1a1a;
@@ -69,6 +70,7 @@ html, body {
 
 .flex-vertical-container {
     --margin-left: 50px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -77,11 +79,51 @@ html, body {
 
 .header {
     width: 700px;
-    margin-bottom: 20px;
+    margin-bottom: var(--standard-bottom-margin);
     margin-left: var(--margin-left);
 
     & p {
         font-size: 1.5rem;
         font-weight: bold;
+    }
+}
+
+input {
+    &[type='text'],
+    &[type='email'],
+    &[type='tel'],
+    &[type='password'] {
+        appearance: none;
+
+        font-size: 1.2rem;
+
+        width: 250px;
+        height: 1.7em;
+        padding: 2px 8px;
+
+        border: 1px solid #e5e7eb;
+        border-radius: 4px;
+    }
+}
+
+.highlight {
+    padding: 40px var(--margin-left);
+    margin-bottom: var(--standard-bottom-margin);
+    box-shadow: 0 4px 10px 0px #00000038;
+
+    & h1 {
+        font-size: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    & .flex-horizontal-container {
+        flex-wrap: wrap;
+        gap: 24px 48px;
+
+        & div {
+            display: flex;
+            flex-direction: column;
+        }
     }
 }
