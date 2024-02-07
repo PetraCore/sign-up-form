@@ -5,7 +5,7 @@
 }
 
 :root {
-    --standard-bottom-margin: 32px;
+    --standard-bottom-margin: 48px;
     font-family: sans-serif;
     background-color: #fff;
     color: #1a1a1a;
@@ -125,5 +125,34 @@ input {
             display: flex;
             flex-direction: column;
         }
+    }
+}
+
+button {
+    appearance: none;
+    margin-left: var(--margin-left);
+    margin-bottom: 16px;
+    padding: 16px 48px;
+
+    background-color: #596d48;
+    color: #fff;
+
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px 0px #00000038;
+
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.log-in-prompt {
+    margin-left: var(--margin-left);
+    font-size: 1.2rem;
+
+    & a,
+    & a:visited {
+        color: #596d48;
+        font-weight: bold;
+        text-decoration: none;
     }
 }
