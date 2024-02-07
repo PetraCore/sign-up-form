@@ -4,6 +4,12 @@
     src: url(fonts/Norse-Bold.otf);
 }
 
+:root {
+    font-family: sans-serif;
+    background-color: #fff;
+    color: #1a1a1a;
+}
+
 html, body {
     height: 100%;
 }
@@ -58,5 +64,24 @@ html, body {
         &:visited {
             color: inherit;
         }
+    }
+}
+
+.flex-vertical-container {
+    --margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.header {
+    width: 700px;
+    margin-bottom: 20px;
+    margin-left: var(--margin-left);
+
+    & p {
+        font-size: 1.5rem;
+        font-weight: bold;
     }
 }
