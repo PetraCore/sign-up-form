@@ -5,7 +5,8 @@
 }
 
 :root {
-    --standard-bottom-margin: 48px;
+    --std-vertical-margin: 48px;
+    --std-horizontal-margin: 50px;
 
     font-family: sans-serif;
     background-color: #fff;
@@ -49,7 +50,7 @@ html, body {
     top: 20%;
 
     padding: 15px;
-    margin-bottom: var(--standard-bottom-margin);
+    margin-bottom: var(--std-vertical-margin);
 
     background-color: #00000088;
 }
@@ -70,7 +71,7 @@ html, body {
 .author {
     text-align: center;
     margin-bottom: 16px;
-    margin-top: var(--standard-bottom-margin);
+    margin-top: var(--std-vertical-margin);
 
     & a {
         &:link,
@@ -81,8 +82,6 @@ html, body {
 }
 
 .flex-vertical-container {
-    --margin-left: 50px;
-
     flex: 2;
     display: flex;
     flex-direction: column;
@@ -95,11 +94,8 @@ html, body {
 
     max-width: 700px;
 
-    margin-top: var(--standard-bottom-margin);
-    margin-bottom: var(--standard-bottom-margin);
-    margin-left: var(--margin-left);
-    margin: var(--standard-bottom-margin)
-            var(--margin-left);
+    margin: var(--std-vertical-margin)
+            var(--std-horizontal-margin);
 
     & p {
         flex: 0 1 auto;
@@ -135,8 +131,8 @@ input {
 }
 
 .highlight {
-    padding: 40px var(--margin-left);
-    margin-bottom: var(--standard-bottom-margin);
+    padding: 40px var(--std-horizontal-margin); 
+    margin-bottom: var(--std-vertical-margin);
     box-shadow: 0 4px 10px 0px #00000038;
 
     & h1 {
@@ -159,7 +155,7 @@ input {
 button {
     appearance: none;
 
-    margin-left: var(--margin-left);
+    margin-left: var(--std-horizontal-margin);
     margin-bottom: 16px;
     padding: 16px 48px;
 
@@ -181,7 +177,7 @@ button {
 }
 
 .log-in-prompt {
-    margin-left: var(--margin-left);
+    margin-left: var(--std-horizontal-margin);
     font-size: 1.2rem;
 
     & a,
