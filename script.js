@@ -54,9 +54,10 @@ function clearErrMessage(element) {
 
 function validatePassword() {
     const infoBox = document.querySelector('#password+div.info');
+    clearSuccess(confirmPassword);
 
     if(!password.value) {
-        raiseError(password, confirmPassword);
+        raiseError(password);
 
         const message = 'Please provide a password';
         displayErrMessage(infoBox, message)
@@ -65,20 +66,28 @@ function validatePassword() {
 
     raiseSuccess(password);
     clearErrMessage(infoBox);
+
+    if(confirmPassword.value) {
+        comparePassword();
+    }
 }
 
 function comparePassword() {
+    if (!password.value) {
+        validatePassword();
+        return;
+    }
+
     const infoBox = document.querySelector('#confirm-password+div.info');
-
     if(password.value !== confirmPassword.value) {
-        raiseError(password, confirmPassword);
+        raiseError(confirmPassword);
 
-        const message = 'Please repeat provided password';
+        const message = 'Please repeat the provided password';
         displayErrMessage(infoBox, message);
         return;
     }
 
-    raiseSuccess(password, confirmPassword);
+    raiseSuccess(confirmPassword);
     clearErrMessage(infoBox);
 }
 
