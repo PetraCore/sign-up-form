@@ -47,6 +47,11 @@ function validatePassword() {
         raiseError(password, confirmPassword);
         return;
     }
+
+    raiseSuccess(password);
+}
+
+function comparePassword() {
     if(password.value !== confirmPassword.value) {
         raiseError(password, confirmPassword);
         return;
@@ -57,7 +62,7 @@ function validatePassword() {
 
 function setupFormInput() {
     password.addEventListener('blur', validatePassword);
-    confirmPassword.addEventListener('blur', validatePassword); 
+    confirmPassword.addEventListener('blur', comparePassword); 
 }
 
 setupFormInput();
