@@ -42,22 +42,44 @@ function raiseSuccess(...elements) {
     });
 }
 
+function displayErrMessage(element, message) {
+    raiseError(element); 
+    element.textContent = message;
+}
+
+function clearErrMessage(element) {
+    clearError(element);
+    element.textContent = '';
+}
+
 function validatePassword() {
+    const infoBox = document.querySelector('#password+div.info');
+
     if(!password.value) {
         raiseError(password, confirmPassword);
+
+        const message = 'Please provide a password';
+        displayErrMessage(infoBox, message)
         return;
     }
 
     raiseSuccess(password);
+    clearErrMessage(infoBox);
 }
 
 function comparePassword() {
+    const infoBox = document.querySelector('#confirm-password+div.info');
+
     if(password.value !== confirmPassword.value) {
         raiseError(password, confirmPassword);
+
+        const message = 'Please repeat provided password';
+        displayErrMessage(infoBox, message);
         return;
     }
 
     raiseSuccess(password, confirmPassword);
+    clearErrMessage(infoBox);
 }
 
 function setupFormInput() {

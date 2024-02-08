@@ -118,7 +118,8 @@ input {
         font-size: 1.2rem;
 
         min-width: 250px;
-        height: 1.7em;
+        min-height: 1.7em;
+        max-height: 1.7em;
         padding: 2px 8px;
 
         border: 1px solid #e5e7eb;
@@ -170,10 +171,26 @@ input {
         gap: 24px 48px;
 
         & div {
-            flex: 1 1 auto;
+            flex: 1 1 0;
             display: flex;
             flex-direction: column;
         }
+    }
+}
+
+.info {
+    word-break: break-all;
+    font-size: 1rem;
+
+    margin-top: 4px;
+
+    max-width: 100%; 
+    min-height: fit-content;
+
+    opacity: 0.8;
+
+    &.error {
+        color: #9f3c3c;
     }
 }
 
