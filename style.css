@@ -128,6 +128,26 @@ input {
         outline: 1px solid #5c5ce7;
         box-shadow: 0 4px 10px 0px #00000038;
     }
+
+    &.error {
+        border: 1px solid #ffa4a4;
+        background-color: #ffe7e7;
+
+        &:focus {
+            border: inherit;
+            background-color: inherit;
+        }
+    }
+
+    &.success {
+        border: 1px solid #a4ffa4;
+        background-color: #e7ffe8;
+
+        &:focus {
+            border: inherit;
+            background-color: inherit;
+        }
+    }
 }
 
 .highlight {
@@ -173,6 +193,16 @@ button {
     &:hover {
         background-color: #8ba376;
         outline: none;
+        cursor: pointer;
+    }
+
+    &.error {
+        background-color: #687061;
+        &:focus,
+        &:hover {
+            background-color: #9f3c3c;
+            cursor: not-allowed;
+        }
     }
 }
 
