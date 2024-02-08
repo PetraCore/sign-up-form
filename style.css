@@ -124,6 +124,10 @@ input {
         border: 1px solid #e5e7eb;
         border-radius: 4px;
     }
+
+    &::placeholder {
+        opacity: 0.5;
+    }
     
     &:focus {
         outline: 1px solid #5c5ce7;
