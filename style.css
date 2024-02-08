@@ -59,6 +59,7 @@ html, body {
     img& {
         display: inline-block;
         width: 90px;
+        height: fit-content;
     }
 
     span& {
