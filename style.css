@@ -89,15 +89,6 @@ button {
         outline: none;
         cursor: pointer;
     }
-
-    &.error {
-        background-color: #687061;
-        &:focus,
-        &:hover {
-            background-color: #9f3c3c;
-            cursor: not-allowed;
-        }
-    }
 }
 
 .flex-horizontal-container {

@@ -1,20 +1,7 @@
-const submitBtn = document.querySelector('#submit');
 const password = document.querySelector('#password');
 const confirmPassword = document.querySelector('#confirm-password');
 
-function blockButton(btn) {
-    btn.disabled = true;
-    btn.classList.add('error');
-}
-
-function unblockButton(btn) {
-    btn.disabled = false;
-    btn.classList.remove('error');
-}
-
 function clearError(...elements) {
-    unblockButton(submitBtn);
-
     elements.forEach(element => {
         element.classList.remove('error'); 
     });
@@ -27,8 +14,6 @@ function clearSuccess(...elements) {
 }
 
 function raiseError(...elements) {
-    blockButton(submitBtn);
-
     clearSuccess(...elements);
     elements.forEach(element => {
         element.classList.add('error'); 
@@ -122,12 +107,14 @@ function comparePassword() {
     if(password.value !== confirmPassword.value) {
         raiseError(confirmPassword);
 
-        const message = 'Please repeat the provided password';
+        const message = 'Please repeat the password';
+        confirmPassword.setCustomValidity(message + '.');
         displayErrMessage(confirmPassword, message);
         return;
     }
 
     raiseSuccess(confirmPassword);
+    confirmPassword.setCustomValidity('');
     clearErrMessage(confirmPassword);
 }
 
