@@ -39,22 +39,23 @@
             <form method="get">
                 <div class="highlight">
                     <h1>Let's do this!</h1>
+                    <div class="info required">Required fields are labeled by a red dot</div>
 
                     <div class="flex-horizontal-container">
                         <div>
-                            <label for="first-name">First Name</label>
+                            <label for="first-name" class="required">First Name</label>
                             <input type="text" name="first-name" id="first-name"
-                                 placeholder="e.g. John" required>
+                                   placeholder="e.g. John" required>
                             <div class="info"></div>
                         </div>
                         <div>
-                            <label for="last-name">Last Name</label>
+                            <label for="last-name" class="required">Last Name</label>
                             <input type="text" name="last-name" id="last-name"
                                    placeholder="e.g. Smith" required>
                             <div class="info"></div>
                         </div>
                         <div>
-                            <label for="email">Email</label>
+                            <label for="email" class="required">Email</label>
                             <input type="email" name="email" id="email"
                                    placeholder="e.g. john@smith.com" required>
                             <div class="info"></div>
@@ -66,13 +67,13 @@
                             <div class="info"></div>
                         </div>
                         <div>
-                            <label for="password">Password</label>
+                            <label for="password" class="required">Password</label>
                             <input type="password" name="password" id="password"
                                    required>
                             <div class="info"></div>
                         </div>
                         <div>
-                            <label for="confirm-password">Confirm Password</label>
+                            <label for="confirm-password" class="required">Confirm Password</label>
                             <input type="password" name="confirm-password"
                                    id="confirm-password" required>
                             <div class="info"></div>

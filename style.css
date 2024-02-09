@@ -164,7 +164,13 @@ input {
     & h1 {
         font-size: 1.5rem;
         margin-top: 0;
-        margin-bottom: 30px;
+        margin-bottom: var(--std-vertical-margin);
+
+        & + div.info {
+            position: relative;
+            margin-top: calc(-1 * var(--std-vertical-margin));
+            margin-bottom: var(--std-vertical-margin);
+        }
     }
 
     & .flex-horizontal-container {
@@ -178,16 +184,28 @@ input {
     }
 }
 
+.required::after {
+    display: inline-block;
+    content: '';
+
+    height: 7px;
+    width: 7px;
+
+    border-radius: 50%;
+    background-color: #c53e52;
+
+    vertical-align: middle;
+    margin-left: 0.5ch;
+}
+
 .info {
-    word-break: break-all;
+    word-break: break-word;
     font-size: 1rem;
 
     margin-top: 4px;
 
     max-width: 100%; 
     min-height: fit-content;
-
-    opacity: 0.8;
 
     &.error {
         color: #9f3c3c;
