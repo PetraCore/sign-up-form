@@ -42,30 +42,71 @@ function raiseSuccess(...elements) {
     });
 }
 
+function getClosestSibling(element, reqClass = null) {
+    let currentElement = element.nextElementSibling;
+
+    while (currentElement) {
+        if(currentElement.classList.contains(reqClass) || !reqClass) {
+            return currentElement;
+        }
+        currentElement = currentElement.nextElementSibling;
+    }
+
+    if (!currentElement) {
+        currentElement = element.previousElementSibling;
+
+        while (currentElement) {
+            if(currentElement.classList.contains('info') || !reqClass) {
+                return currentElement;
+            }
+            currentElement = currentElement.previousElementSibling;
+        }
+    }
+
+    return null;
+}
+
 function displayErrMessage(element, message) {
-    raiseError(element); 
-    element.textContent = message;
+
+    const infoBox = getClosestSibling(element, 'info')
+
+    if (!infoBox) {
+        console.error(`Cannot display message:
+        Could not find sibling with class .info for element ${element}`);
+        return;
+    }
+
+    raiseError(infoBox); 
+    infoBox.textContent = message;
 }
 
 function clearErrMessage(element) {
-    clearError(element);
-    element.textContent = '';
+
+    const infoBox = getClosestSibling(element, 'info')
+
+    if (!infoBox) {
+        console.error(`Cannot clear message:
+        Could not find sibling with class .info for element ${element}`);
+        return;
+    }
+
+    clearError(infoBox);
+    infoBox.textContent = '';
 }
 
 function validatePassword() {
-    const infoBox = document.querySelector('#password+div.info');
     clearSuccess(confirmPassword);
 
     if(!password.value) {
         raiseError(password);
 
         const message = 'Please provide a password';
-        displayErrMessage(infoBox, message)
+        displayErrMessage(password, message)
         return;
     }
 
     raiseSuccess(password);
-    clearErrMessage(infoBox);
+    clearErrMessage(password);
 
     if(confirmPassword.value) {
         comparePassword();
@@ -78,20 +119,72 @@ function comparePassword() {
         return;
     }
 
-    const infoBox = document.querySelector('#confirm-password+div.info');
     if(password.value !== confirmPassword.value) {
         raiseError(confirmPassword);
 
         const message = 'Please repeat the provided password';
-        displayErrMessage(infoBox, message);
+        displayErrMessage(confirmPassword, message);
         return;
     }
 
     raiseSuccess(confirmPassword);
-    clearErrMessage(infoBox);
+    clearErrMessage(confirmPassword);
 }
 
 function setupFormInput() {
+    const firstName = document.querySelector('#first-name');
+    const lastName = document.querySelector('#last-name');
+    const email = document.querySelector('#email');
+    const phoneNumber = document.querySelector('#phone-number');
+
+    firstName.addEventListener('blur', () => {
+        if(!firstName.validity.valid) {
+            raiseError(firstName);
+            displayErrMessage(firstName, 'Please provide your name');
+            return;
+        }
+        raiseSuccess(firstName);
+        clearErrMessage(firstName);
+    });
+
+    lastName.addEventListener('blur', () => {
+        if(!lastName.validity.valid) {
+            raiseError(lastName);
+            displayErrMessage(lastName, 'Please provide your last name');
+            return;
+        }
+        raiseSuccess(lastName);
+        clearErrMessage(lastName);
+    });
+
+    email.addEventListener('blur', () => {
+        if(email.validity.valid) {
+            raiseSuccess(email);
+            clearErrMessage(email);
+            return;
+        }
+        raiseError(email);
+
+        if(email.validity.valueMissing) {
+            displayErrMessage(email, 'Please provide your email');
+            return;
+        }
+
+        if(email.validity.typeMismatch) {
+            displayErrMessage(email, 
+            'Please enter a valid email address');
+            return;
+        }
+    });
+
+    phoneNumber.addEventListener('blur', () => {
+        if(!phoneNumber.value) {
+            clearSuccess(phoneNumber);
+            return;
+        }
+        raiseSuccess(phoneNumber);
+    });
+
     password.addEventListener('blur', validatePassword);
     confirmPassword.addEventListener('blur', comparePassword); 
 }
