@@ -110,7 +110,7 @@ button {
     color: #fff;
 
     width: 700px;
-    min-width: 400px;
+    min-width: 350px;
 }
 
 .banner {
@@ -162,6 +162,10 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    .side-banner + & {
+        min-width: 400px;
+    }
 }
 
 .header {
