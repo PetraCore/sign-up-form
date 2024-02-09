@@ -90,6 +90,22 @@ function validatePassword() {
         return;
     }
 
+    if(password.validity.tooShort) {
+        raiseError(password);
+
+        const message = `Password should be at least ${password.minLength} characters long`;
+        displayErrMessage(password, message);
+        return;
+    }
+
+    if(password.validity.tooLong) {
+        raiseError(password);
+
+        const message = `Please shorten the password to ${password.maxLength} characters`;
+        displayErrMessage(password, message);
+        return;
+    }
+
     raiseSuccess(password);
     clearErrMessage(password);
 
@@ -110,6 +126,11 @@ function comparePassword() {
         const message = 'Please repeat the password';
         confirmPassword.setCustomValidity(message + '.');
         displayErrMessage(confirmPassword, message);
+        return;
+    }
+
+    if(confirmPassword.validity.tooShort || confirmPassword.validity.tooLong) {
+        raiseError(confirmPassword);
         return;
     }
 
